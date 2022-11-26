@@ -1,12 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardMain from "../../Layout/DashboardMain";
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
+import Allbuyers from "../../Pages/Dashboard/Allbuyers/Allbuyers";
+import Allusers from "../../Pages/Dashboard/Allusers/Allusers";
+import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
+
 import Errorpage from "../../Pages/Errorpage/Errorpage";
 import Singleproduct from "../../Pages/Home/Category/Singleproduct/Singleproduct";
 import Home from "../../Pages/Home/Home/Home/Home";
 
 import Login from "../../Pages/Login/Login";
 import Singup from "../../Pages/Singup/Singup";
+import Privateroute from "../Privateroute/Privateroute";
 
 const router=createBrowserRouter([
     {
@@ -18,7 +24,7 @@ const router=createBrowserRouter([
                 element:<Login></Login>
             },
             {
-                path:'/home',
+                path:'/',
                 element:<Home></Home>
             },
             {
@@ -41,6 +47,25 @@ const router=createBrowserRouter([
     {
         path:'*',
         element:<Errorpage></Errorpage>
+    },
+    {
+        path:'/dashboard',
+        element:<Privateroute><DashboardMain></DashboardMain></Privateroute>,
+        children:[
+            {
+                path:'/dashboard',
+                element:<Myorders></Myorders>
+            },
+            {
+                path:'/dashboard/allbuyers',
+                element:<Allbuyers></Allbuyers>
+            },
+            {
+                path:'/dashboard/allusers',
+                element:<Allusers></Allusers>
+            }
+
+        ]
     }
 ])
 export default router;

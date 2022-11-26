@@ -1,17 +1,35 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../Context/Authprovider';
 
 const Singup = () => {
     const [error,setError]=useState(' ')
-    const {createuser}=useContext(authContext)
+    const {createuser,updateUser}=useContext(authContext)
     const { register, handleSubmit,formState: { errors }  } = useForm();
     const onSubmit = (data) => {
         createuser(data.email,data.password)
         .then(result=>{
             const user=result.user;
             console.log(user)
+            const userInfo = {
+                displayName:data.name
+            }
+            console.log(userInfo)
+            updateUser(userInfo)
+            .then(()=>{
+                const userinfo ={
+                    name:data.name,
+                    email:data.email
+                }
+                saveUser(userinfo)
+             
+            })
+            .catch(error=>{
+                console.log(error)
+            })
+
         })
         .catch(error=>{
             setError(error.message)
@@ -21,6 +39,25 @@ const Singup = () => {
         
         
     }
+    
+    const saveUser = (user) => {
+        fetch('http://localhost:5000/users', {
+            method: 'POST', 
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                toast('User data successfully')
+                console.log('Success-user:', data);  
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+ 
     return (
         <div>
            <div className=' h-[600px] flex justify-center items-center'>
@@ -31,7 +68,7 @@ const Singup = () => {
                     <span className="label-text">Name</span>
                    
                 </label>
-                <input type="name" placeholder="Type here" className="input input-bordered w-full "
+                <input type="name" name="name" placeholder="Type here" className="input input-bordered w-full "
                 {...register("name")} />
                 <div>
                 <label className="label">

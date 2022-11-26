@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Authprovider from './Context/Authprovider';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import  { Toaster } from 'react-hot-toast';
 
 
 
@@ -18,7 +19,9 @@ root.render(
     <Authprovider>
    <App />
    </Authprovider>
+   <Toaster />
     </QueryClientProvider>
+   
   
    
    

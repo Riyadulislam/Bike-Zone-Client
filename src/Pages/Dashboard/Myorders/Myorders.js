@@ -45,6 +45,7 @@ const Myorders = () => {
           <thead>
             <tr>
               <th></th>
+              <th>Image</th>
               <th>Title</th>
               <th>Price</th>
               <th>Payment</th>
@@ -55,6 +56,13 @@ const Myorders = () => {
             {
                 booking.map(book=>  <tr>
                     <th>1</th>
+                    <th>
+  
+<div className="avatar">
+  <div className="w-24 rounded-full">
+    <img src={book.image} />
+  </div>
+</div></th>
                     <td>{book.BikeName}</td>
                     <td>${book.price}</td>
                     <td><button className='btn btn-accent btn-xs'>Pay</button></td>

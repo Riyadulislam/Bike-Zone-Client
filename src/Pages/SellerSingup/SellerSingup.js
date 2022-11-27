@@ -4,7 +4,7 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { authContext } from '../../Context/Authprovider';
 
-const Singup = () => {
+const SellerSingup = () => {
     const [error,setError]=useState(' ')
     const {createuser,updateUser}=useContext(authContext)
     const { register, handleSubmit,formState: { errors }  } = useForm();
@@ -14,7 +14,8 @@ const Singup = () => {
             const user=result.user;
             console.log(user)
             const userInfo = {
-                displayName:data.name
+                displayName:data.name,
+                roles:'nayok'
             }
             console.log(userInfo)
             updateUser(userInfo)
@@ -38,10 +39,22 @@ const Singup = () => {
     
         
         
-    }
+     }
+    // const handleadmin=(id)=>{
+    //     fetch(`http://localhost:5000/users/admin/${id}`,{
+    //         method: 'PUT',
+    //     })
+    //     .then(res=>res.json())
+    //     .then(data=>{
+    //         if(data.acknowledged){
+    //             refetch()
+    //         }
+    //         console.log(data)
+    //     })
+    //  }
     
     const saveUser = (user) => {
-        fetch('http://localhost:5000/users', {
+        fetch('http://localhost:5000/sellers', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',
@@ -60,15 +73,7 @@ const Singup = () => {
  
     return (
         <div>
-
-<div className="dropdown h-[100px] flex justify-center items-center">
-  <label tabIndex={0} className="btn btn-accent">Choice Account</label>
-  <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40">
-    <li><Link to='/singup'>Buyer Account</Link></li>
-    <li><Link to='/sellersingup'>Seller Account</Link></li>
-  </ul>
-</div>
-           <div className=' h-[600px] flex justify-center items-center'>
+            <div className=' h-[600px] flex justify-center items-center'>
             <div className="form-control w-96">
             <h1 className='text-center text-3xl font-bold'>Singup</h1>
             <form  onSubmit={handleSubmit(onSubmit)}>
@@ -105,8 +110,9 @@ const Singup = () => {
             </div>
         </div>
             
+        
         </div>
     );
 };
 
-export default Singup;
+export default SellerSingup;

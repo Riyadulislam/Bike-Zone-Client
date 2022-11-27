@@ -1,8 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardMain from "../../Layout/DashboardMain";
 import Main from "../../Layout/Main";
+
 import Blog from "../../Pages/Blog/Blog";
 import Allbuyers from "../../Pages/Dashboard/Allbuyers/Allbuyers";
+import Allsellers from "../../Pages/Dashboard/Allsellers/Allsellers";
 import Allusers from "../../Pages/Dashboard/Allusers/Allusers";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
 
@@ -11,6 +13,7 @@ import Singleproduct from "../../Pages/Home/Category/Singleproduct/Singleproduct
 import Home from "../../Pages/Home/Home/Home/Home";
 
 import Login from "../../Pages/Login/Login";
+import SellerSingup from "../../Pages/SellerSingup/SellerSingup";
 import Singup from "../../Pages/Singup/Singup";
 import Privateroute from "../Privateroute/Privateroute";
 
@@ -30,6 +33,10 @@ const router=createBrowserRouter([
             {
                 path:'/singup',
                 element:<Singup></Singup>
+            },
+            {
+                path:'/sellersingup',
+                element:<SellerSingup></SellerSingup>
             },
             {
                 path:'/blog',
@@ -63,6 +70,10 @@ const router=createBrowserRouter([
             {
                 path:'/dashboard/allusers',
                 element:<Allusers></Allusers>
+            },
+            {
+                path:'/dashboard/allsellers',
+                element:<Allsellers></Allsellers>
             }
 
         ]

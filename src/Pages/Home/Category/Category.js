@@ -35,7 +35,7 @@ if(isLoading)
   
     return (
         <div>
-            <h1>This is Category</h1>
+            <h1 className='text-center font-bold text-3xl mt-4'>CATEGORIES</h1>
             <div className='grid  grid-cols-1 md:grid-cols-3'>
             {
                 categorys.map(category=><Categorycard

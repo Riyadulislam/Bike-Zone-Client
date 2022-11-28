@@ -33,10 +33,14 @@ const DashboardMain = () => {
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
    
       <li><Link to='/dashboard'>My Orders</Link></li>
-      { isSeller &&<li><Link to='/dashboard/allsellers'>All sellers</Link></li>}
+   
+      {isSeller && <li><Link to='/dashboard/addproduct'>Add A Product</Link></li>}
+      {isSeller && <li><Link to='/dashboard/myproduct'>My Product</Link></li>}
+
+      {/* { isSeller &&<li><Link to='/dashboard/allsellers'>All sellers</Link></li>} */}
       { isAdmin  &&<li><Link to='/dashboard/allsellers'>All sellers</Link></li>}
      
-        { isAdmin &&  <li><Link to='/dashboard/allbuyers'>All Buyers</Link></li>}
+    {isAdmin  && <li><Link to='/dashboard/allbuyers'>All Buyers</Link></li>}
       {
         isAdmin &&  <li><Link to='/dashboard/allusers'>All Users</Link></li>
       }

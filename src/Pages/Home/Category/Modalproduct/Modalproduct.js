@@ -3,7 +3,7 @@ import { authContext } from '../../../../Context/Authprovider';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Modalproduct = ({bookingproduct,setBookingproduct}) => {
-    const {name,reselPrice}=bookingproduct
+    const {name,reselPrice,image}=bookingproduct
     const {user}=useContext(authContext)
     const handleForm=(event)=>{
         event.preventDefault();
@@ -16,7 +16,8 @@ const Modalproduct = ({bookingproduct,setBookingproduct}) => {
             BikeName:name,
             price:reselPrice,
             number:phone,
-            location:location
+            location:location,
+            image:image
         }
         console.log(booking)
         fetch('http://localhost:5000/bookings', {

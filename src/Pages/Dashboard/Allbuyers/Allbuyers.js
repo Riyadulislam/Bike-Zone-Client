@@ -10,7 +10,7 @@ const Allbuyers = () => {
     const {data:allbuyers=[],isLoading,refetch} = useQuery({
          queryKey: ['allbuyers'], 
          queryFn: async ()=>{
-         const res = await fetch('http://localhost:5000/allbookings')
+         const res = await fetch('http://localhost:5000/Buyer')
          const data=await res.json()
          return data
         }} )
@@ -22,7 +22,7 @@ const Allbuyers = () => {
          console.log(allbuyers)
          const handledelete=(id)=>{
             console.log(id)
-            fetch(`http://localhost:5000/allbookings/${id}`,{
+            fetch(`http://localhost:5000/usersbuyer/${id}`,{
                 method: 'DELETE',
                 headers: {
                     'Content-Type':'application/json'

@@ -10,7 +10,7 @@ const Categorycard = ({category,isLoading}) => {
     {
         return <Loader></Loader>
     }
-    // console.log('all product',products)
+   
     return (
         <div>
         
@@ -23,7 +23,7 @@ const Categorycard = ({category,isLoading}) => {
    
     <div className="card-actions">
       <button className="btn btn-primary">
-        <Link to={`/category/${service_id}`}>Book Now</Link>
+        <Link to={`/category/${service_id}`}>Category</Link>
    
        
         </button>
@@ -31,14 +31,6 @@ const Categorycard = ({category,isLoading}) => {
   </div>
 </div>
 
-{/* <div>
-            { products.length && 
-    products.map(productt=><Singleproduct
-    key={productt._id}
-    productt={productt}
-    ></Singleproduct>)
-} */}
-{/* <Singleproduct products={products}></Singleproduct> */}
 
 
         </div>

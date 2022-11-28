@@ -3,10 +3,13 @@ import DashboardMain from "../../Layout/DashboardMain";
 import Main from "../../Layout/Main";
 
 import Blog from "../../Pages/Blog/Blog";
+import Addproduct from "../../Pages/Dashboard/Addproduct/Addproduct";
 import Allbuyers from "../../Pages/Dashboard/Allbuyers/Allbuyers";
 import Allsellers from "../../Pages/Dashboard/Allsellers/Allsellers";
 import Allusers from "../../Pages/Dashboard/Allusers/Allusers";
 import Myorders from "../../Pages/Dashboard/Myorders/Myorders";
+import Myproduct from "../../Pages/Dashboard/Myproduct/Myproduct";
+import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 import Errorpage from "../../Pages/Errorpage/Errorpage";
 import Singleproduct from "../../Pages/Home/Category/Singleproduct/Singleproduct";
@@ -74,7 +77,23 @@ const router=createBrowserRouter([
             {
                 path:'/dashboard/allsellers',
                 element:<Allsellers></Allsellers>
+            },
+            {
+                path:'/dashboard/addproduct',
+                element:<Addproduct></Addproduct>
+            },
+            {
+                path:'/dashboard/myproduct',
+                element:<Myproduct></Myproduct>
+               
+            },
+            {
+                path:'/dashboard/payment/:id',
+                element:<Payment></Payment>,
+                loader:({params})=>fetch(`http://localhost:5000/myproductb/${params.id}`)
+               
             }
+            
 
         ]
     }

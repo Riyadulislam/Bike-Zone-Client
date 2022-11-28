@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { authContext } from '../../../Context/Authprovider';
 import Loader from '../../Loader/Loader';
 
 const Myorders = () => {
     const {user}=useContext(authContext)
     console.log(user.email)
+    
     
     const {data:booking=[],isLoading,refetch} = useQuery({
         queryKey: ['booking',user?.email],
@@ -22,7 +24,7 @@ const Myorders = () => {
       
       const handledelete=(id)=>{
         console.log(id)
-        fetch(`http://localhost:5000/allbookings/${id}`,{
+        fetch(`http://localhost:5000/mybookings/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type':'application/json'
@@ -32,8 +34,9 @@ const Myorders = () => {
         .then(data=>{
             if(data.acknowledged){
                 toast.success('orders Successfully Deleted')
+                refetch();
             }
-            refetch();
+            
             console.log(data)
         })
      } 
@@ -65,7 +68,9 @@ const Myorders = () => {
 </div></th>
                     <td>{book.BikeName}</td>
                     <td>${book.price}</td>
-                    <td><button className='btn btn-accent btn-xs'>Pay</button></td>
+                    <td>
+              { book.price && !book.paid && <Link to={`/dashboard/payment/${book._id}`}> <button className='btn btn-accent btn-xs'>Pay</button></Link>}
+              { book.price && book.paid && <button className='btn btn-accent btn-xs'>Paid</button>}</td>
                     <td><button onClick={()=>handledelete(book._id)} className='btn btn-accent btn-xs'>Delete</button></td>
                   </tr>)
             }

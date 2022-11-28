@@ -28,6 +28,7 @@ const Login = () => {
         const handleGoogleLogin=()=>{
             googleLogin(provider)
             .then(result=>{
+                navigate(from, { replace: true });
                 const user=result.user;
                 console.log(user)
             })

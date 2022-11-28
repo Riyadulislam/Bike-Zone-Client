@@ -36,7 +36,7 @@ const handleLogout=()=>{
                      {menuItems}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl">Bike Sell</Link>
+                <Link className="btn btn-ghost normal-case text-xl">Bike Zone</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

@@ -71,23 +71,23 @@ const router=createBrowserRouter([
             },
             {
                 path:'/dashboard/allbuyers',
-                element:<Allbuyers></Allbuyers>
+                element:<Privateroute><Allbuyers></Allbuyers></Privateroute>
             },
             {
                 path:'/dashboard/allusers',
-                element:<Allusers></Allusers>
+                element:<Privateroute><Allusers></Allusers></Privateroute>
             },
             {
                 path:'/dashboard/allsellers',
-                element:<Allsellers></Allsellers>
+                element:<Privateroute><Allsellers></Allsellers></Privateroute>
             },
             {
                 path:'/dashboard/addproduct',
-                element:<Addproduct></Addproduct>
+                element:<Privateroute><Addproduct></Addproduct></Privateroute>
             },
             {
                 path:'/dashboard/myproduct',
-                element:<Myproduct></Myproduct>
+                element:<Privateroute><Myproduct></Myproduct></Privateroute>
                
             },
             {

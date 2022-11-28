@@ -98,7 +98,7 @@ const Addproduct = () => {
    <input type="file"  placeholder="Location" className="input w-full input-bordered"
    {...register("image")} />
    
-   <input type="submit" className='btn btn-accent w-full' value="Submit" />
+   <input type="submit" className=' btn btn-accent w-full' value="Submit" />
    </form>
   </div>
 

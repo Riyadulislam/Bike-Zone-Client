@@ -1,8 +1,12 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useEffect, useState } from 'react';
+import Loader from '../../../Loader/Loader';
 
 
 const Individualproduct = ({p,setBookingproduct}) => {
     const {name,image,orginalPrice,reselPrice,use,Location}=p
+    console.log('new',p)
+        
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl ">
@@ -15,12 +19,19 @@ const Individualproduct = ({p,setBookingproduct}) => {
                         <p>reselPrice:{reselPrice}</p>
                         <p>Use:{use}</p>
                         <p>Location:{Location}</p>
+                
+                   
+                   
                         <div className="card-actions">
                          
                             <label onClick={()=>setBookingproduct(p)}
                              htmlFor="my-modal-3"
-                              className="btn btn-primary">Book Now</label>
+                              className="btn btn-primary">book now</label>
                         </div>
+                                
+                                   
+            
+
                     </div>
                 </div>
              

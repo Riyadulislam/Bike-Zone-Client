@@ -3,7 +3,7 @@ import { authContext } from '../../../../Context/Authprovider';
 import toast, { Toaster } from 'react-hot-toast';
 
 const Modalproduct = ({bookingproduct,setBookingproduct}) => {
-    const {name,reselPrice,image}=bookingproduct
+    const {name,reselPrice,image,_id}=bookingproduct
     const {user}=useContext(authContext)
     const handleForm=(event)=>{
         event.preventDefault();
@@ -17,10 +17,12 @@ const Modalproduct = ({bookingproduct,setBookingproduct}) => {
             price:reselPrice,
             number:phone,
             location:location,
-            image:image
+            image:image,
+            productId:_id
         }
+        
         console.log(booking)
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://usedproduct-resel-server-side.vercel.app/bookings', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

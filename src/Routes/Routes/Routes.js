@@ -17,6 +17,7 @@ import Home from "../../Pages/Home/Home/Home/Home";
 
 import Login from "../../Pages/Login/Login";
 import SellerSingup from "../../Pages/SellerSingup/SellerSingup";
+import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import Singup from "../../Pages/Singup/Singup";
 import Privateroute from "../Privateroute/Privateroute";
 
@@ -24,6 +25,7 @@ const router=createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             {
                 path:'/login',
@@ -48,7 +50,7 @@ const router=createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<Singleproduct></Singleproduct>,
-                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+                loader:({params})=>fetch(`https://usedproduct-resel-server-side.vercel.app/category/${params.id}`)
             }
           
         ]
@@ -61,6 +63,7 @@ const router=createBrowserRouter([
     {
         path:'/dashboard',
         element:<Privateroute><DashboardMain></DashboardMain></Privateroute>,
+        errorElement:<DisplayError></DisplayError>,
         children:[
             {
                 path:'/dashboard',
@@ -90,7 +93,7 @@ const router=createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
-                loader:({params})=>fetch(`http://localhost:5000/myproductb/${params.id}`)
+                loader:({params})=>fetch(`https://usedproduct-resel-server-side.vercel.app/myBookingProduct/${params.id}`)
                
             }
             

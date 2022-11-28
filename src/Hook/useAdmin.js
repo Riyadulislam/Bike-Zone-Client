@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react"
 
 const useAdmin = email => {
-    console.log('admin',email)
+  
     const [isAdmin, setIsAdmin] = useState(false);
     useEffect(() => {
         if (email) {
-            fetch(`http://localhost:5000/users/admin/${email}`)
+            fetch(`https://usedproduct-resel-server-side.vercel.app/users/admin/${email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);

@@ -54,22 +54,18 @@ const Allbuyers = () => {
           <thead>
             <tr>
               <th></th>
-              <th>Title</th>
-              <th>Price</th>
+              <th>Name</th>
               <th>Email</th>
-              <th>Payment</th>
               <th>Delete</th>
-              <th>Admin</th>
+         
             </tr>
           </thead>
           <tbody>
             {
                 allbuyers.map((book,i)=>  <tr key={i}>
                     <th>{i+1}</th>
-                    <td>{book.BikeName}</td>
-                    <td>${book.price}</td>
+                    <td>{book.name}</td>
                     <td>{book.email}</td>
-                    <td><button className='btn btn-accent btn-xs'>Pay</button></td>
                     <td><button onClick={()=>handledelete(book._id)} className='btn btn-accent btn-xs'>Delete</button></td>
                 
                    

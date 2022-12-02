@@ -12,7 +12,7 @@ const Category = () => {
 //    const { data:categorys=[],isLoading} = useQuery({
 //     queryKey: ['categorys'],
 //     queryFn: async () => {
-//         const res = await fetch('https://usedproduct-resel-server-side.vercel.app/category')
+//         const res = await fetch('http://localhost:5000/category')
            
 //         const data = await res.json()
 //         return data;
@@ -22,7 +22,7 @@ const Category = () => {
   
 //     const id=data.service_id
 //     console.log(id)
-//     fetch(`https://usedproduct-resel-server-side.vercel.app/category/${id}`)
+//     fetch(`http://localhost:5000/category/${id}`)
 //     .then(res=>res.json())
 //     .then(datas=>
 //         {setProducts(datas)
@@ -35,7 +35,7 @@ const Category = () => {
 // }
 
 useEffect(()=>{
-    axios.get('https://usedproduct-resel-server-side.vercel.app/category')
+    axios.get('http://localhost:5000/category')
     .then(data=>setCategorys(data.data))
 },[])
   console.log(' categorys', categorys.data)

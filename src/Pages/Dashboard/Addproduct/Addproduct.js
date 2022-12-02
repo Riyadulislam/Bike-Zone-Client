@@ -40,7 +40,7 @@ const Addproduct = () => {
           .then(res=>res.json())
           .then(imagedata=>{
             console.log(imagedata.data.url)
-            fetch('https://usedproduct-resel-server-side.vercel.app/product', {
+            fetch('http://localhost:5000/product', {
                 method: 'POST', // or 'PUT'
                 headers: {
                   'Content-Type': 'application/json',
@@ -73,6 +73,8 @@ const Addproduct = () => {
 
     <h3 className=" text-center text-lg font-bold"></h3>
    <form onSubmit={handleSubmit(onSubmit)} className='grid grid-cols-1 gap-3 mt-10'>
+   <input type="salarname" placeholder="seller Name"className="input w-full input-bordered"
+   {...register("salarname")} />
    <input type="name" placeholder="Product Name"className="input w-full input-bordered"
    {...register("name")} />
    <input type="price" placeholder="reselPrice"  className="input w-full input-bordered"

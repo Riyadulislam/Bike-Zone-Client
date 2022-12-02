@@ -4,7 +4,7 @@ import Loader from '../../../Loader/Loader';
 
 
 const Individualproduct = ({p,setBookingproduct}) => {
-    const {name,image,orginalPrice,reselPrice,use,Location}=p
+    const {name,image,orginalPrice,reselPrice,use,Location,paid}=p
     console.log('new',p)
         
     return (
@@ -18,16 +18,30 @@ const Individualproduct = ({p,setBookingproduct}) => {
                         <p>orginalPrice:{orginalPrice}</p>
                         <p>reselPrice:{reselPrice}</p>
                         <p>Use:{use}</p>
-                        <p>Location:{Location}</p>
-                
+                        <p>Location:{Location}</p> 
                    
-                   
-                        <div className="card-actions">
+                        {
+                            paid &&  <div className="card-actions">
                          
                             <label onClick={()=>setBookingproduct(p)}
                              htmlFor="my-modal-3"
-                              className="btn btn-primary">book now</label>
+                              className="btn btn-primary">Sold</label>
                         </div>
+                        
+                     }
+                       {
+                            !paid &&  <div className="card-actions">
+                         
+                            <label onClick={()=>setBookingproduct(p)}
+                             htmlFor="my-modal-3"
+                              className="btn btn-primary">Book Now</label>
+                        </div>
+                        
+                     }
+                
+                         
+                           
+                        
                                 
                                    
             

@@ -1,23 +1,36 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { authContext } from '../../Context/Authprovider';
+import Modalproduct from '../Home/Category/Modalproduct/Modalproduct';
 import Loader from '../Loader/Loader';
 
 
 const Advertise = () => {
+    const {user}=useContext(authContext)
     const { data: advertizement = [], isLoading,} = useQuery({
         queryKey: ['advertizement'],
         queryFn: async () => {
-            const res = await fetch(`https://usedproduct-resel-server-side.vercel.app/advertize`)
+            const res = await fetch(`http://localhost:5000/advertize`)
             const data = await res.json()
             return data
         }
     })
-    
-
+   
+    console.log('user',user?.email)
+    useEffect(() => {
+            fetch(`http://localhost:5000/verify/${user?.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    console.log('data',data);
+                })
+        
+    }, [user?.email])
+ 
+      
     if (isLoading) {
         return <Loader></Loader>
     }
-    console.log('advertize',advertizement)
+    console.log('advertiz',advertizement)
    
     return (
         <div >
@@ -30,13 +43,13 @@ const Advertise = () => {
                 <img src={add.image} alt="Shoes" className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">{add.name}</h2>
-                <p>orginalPrice:{add.orginalPrice}</p>
-                <p>reselPrice:{add.reselPrice}</p>
+            <h2 className="card-title">Seller Status{add.sellername}</h2>
+                <h2 className="card-title">Product Name:{add.name}</h2>
+                <p>OrginalPrice:{add.orginalPrice}</p>
+                <p>ReselPrice:{add.reselPrice}</p>
                 <p>Use:{add.use}</p>
                 <p>Location:{add.Location}</p>
                 <div className="card-actions">
-                 
                     <label
                      htmlFor="my-modal-3"
                       className="btn btn-primary">Book Now</label>
@@ -45,24 +58,9 @@ const Advertise = () => {
         </div>)
         }
        </div>
+       
        </div>
-        // <div>
-        //     {
-        //     <h1 className='text-center font-bold text-4xl text-primary'> advertize</h1>
-        //         advertizement.map(add=><div className="card w-96 bg-base-100 shadow-xl">
-        //         <figure className="px-10 pt-10">
-        //           <img src="https://placeimg.com/400/225/arch" alt="Shoes" className="rounded-xl" />
-        //         </figure>
-        //         <div className="card-body items-center text-center">
-        //           <h2 className="card-title">{add.Category}</h2>
-        //           <p>{add.name}</p>
-        //           <div className="card-actions">
-        //             <button className="btn btn-primary">Buy Now</button>
-        //           </div>
-        //         </div>
-        //       </div>)
-        //     }
-        // </div>
+       
     );
 };
 

@@ -41,7 +41,7 @@ const Singup = () => {
     }
     
     const saveUser = (user) => {
-        fetch('https://usedproduct-resel-server-side.vercel.app/users', {
+        fetch('http://localhost:5000/users', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',

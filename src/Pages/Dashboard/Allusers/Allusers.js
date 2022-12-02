@@ -4,21 +4,21 @@ import Loader from '../../Loader/Loader';
 
 const Allusers = () => {
 
-    const {data:allusers=[],isLoading,refetch} = useQuery({
-        queryKey: ['allusers'], 
+    const {data:all=[],isLoading,refetch} = useQuery({
+        queryKey: ['all'], 
         queryFn: async ()=>{
-        const res = await fetch('https://usedproduct-resel-server-side.vercel.app/allusers')
+        const res = await fetch('http://localhost:5000/all')
         const data=await res.json()
         return data
        }} )
-
+console.log(all)
        if(isLoading)
      {
            return <Loader></Loader>
         }
-        console.log(allusers)
+        console.log(all)
         const handleadmin=(id)=>{
-            fetch(`https://usedproduct-resel-server-side.vercel.app/users/admin/${id}`,{
+            fetch(`http://localhost:5000/users/admin/${id}`,{
                 method: 'PUT',
             })
             .then(res=>res.json())
@@ -45,12 +45,13 @@ const Allusers = () => {
      </thead>
      <tbody>
        {
-           allusers.map((book,i)=> <tr key={i}>
+           all.map((book,i)=> <tr key={i}>
                <th>{i+1}</th>
                <td>{book.name}</td>
                <td>{book.email}</td>
                <td>{book.role!=='admin'&&
-                <button onClick={()=>handleadmin(book._id)} className='btn btn-accent btn-xs'>Make Admin</button>}</td>
+                <button onClick={()=>handleadmin(book._id)} className='btn btn-accent btn-xs'>Make Admin</button>}
+                </td>
            
              </tr>)
        }

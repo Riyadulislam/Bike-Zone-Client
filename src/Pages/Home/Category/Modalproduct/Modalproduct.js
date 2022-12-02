@@ -22,7 +22,7 @@ const Modalproduct = ({bookingproduct,setBookingproduct}) => {
         }
         
         console.log(booking)
-        fetch('https://usedproduct-resel-server-side.vercel.app/bookings', {
+        fetch('http://localhost:5000/bookings', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import toast from 'react-hot-toast';
-
+import { FaBeer} from 'react-icons/fa';
 import Loader from '../../Loader/Loader';
 
 const Allsellers = () => {
@@ -9,7 +9,7 @@ const Allsellers = () => {
     const {data:allusers=[],isLoading,refetch} = useQuery({
         queryKey: ['allusers'], 
         queryFn: async ()=>{
-        const res = await fetch('https://usedproduct-resel-server-side.vercel.app/allusers')
+        const res = await fetch('http://localhost:5000/allusers')
         const data=await res.json()
         return data
        }} )
@@ -19,7 +19,7 @@ const Allsellers = () => {
            return <Loader></Loader>
         }
       const handleDelete=(id)=>{
-        fetch(`https://usedproduct-resel-server-side.vercel.app/allseller/${id}`,{
+        fetch(`http://localhost:5000/allseller/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type':'application/json'
@@ -36,12 +36,22 @@ const Allsellers = () => {
         })
       }
       
-        
+      const handleadmin=(id)=>{
+        fetch(`http://localhost:5000/users/seller/${id}`,{
+            method: 'PUT',
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            if(data.acknowledged){
+                refetch()
+               
+            }
+            console.log(data)
+        })
+     }
 
     return (
         <div>
-            <h1>all sellers</h1>
-          
              <div>
              <div className="overflow-x-auto">
         <table className="table w-full">
@@ -49,12 +59,11 @@ const Allsellers = () => {
           <thead>
             <tr>
               <th></th>
-              <th>Title</th>
-              <th>Price</th>
+              <th>Name</th>
               <th>Email</th>
-              <th>Payment</th>
+              <th>Verify</th>
+              <th>Verifyed</th>
               <th>Delete</th>
-              <th>Admin</th>
             </tr>
           </thead>
           <tbody>
@@ -62,12 +71,18 @@ const Allsellers = () => {
                 allusers.map((book,i)=>  <tr key={i}>
                     <th>{i+1}</th>
                     <td>{book.name}</td>
-                    <td>${book.price}</td>
                     <td>{book.email}</td>
-                    <td><button className='btn btn-accent btn-xs'>Pay</button></td>
-                    <td><button onClick={()=>handleDelete(book._id)}  className='btn btn-accent btn-xs'>Delete</button></td>
+                    <td>{book.status!=='verify'&& 
+                <button onClick={()=>handleadmin(book._id)} className='btn btn-accent btn-xs'>unverified</button>
+            }
+                </td>
+                <td>{book.status=='verify'&& <div>
+            
                 
-                   
+                <button onClick={()=>handleadmin(book._id)} className='btn btn-accent btn-xs'>verified</button>
+                </div>}
+                </td>
+                    <td><button onClick={()=>handleDelete(book._id)}  className='btn btn-accent btn-xs'>Delete</button></td>
                   </tr>)
             }
          

@@ -13,7 +13,7 @@ const Myorders = () => {
     const {data:booking=[],isLoading,refetch} = useQuery({
         queryKey: ['booking',user?.email],
         queryFn: () =>
-          fetch(`https://usedproduct-resel-server-side.vercel.app/booking?email=${user?.email}`)
+          fetch(`http://localhost:5000/booking?email=${user?.email}`)
           .then(res =>res.json()
           )
       })
@@ -24,7 +24,7 @@ const Myorders = () => {
       
       const handledelete=(id)=>{
         console.log(id)
-        fetch(`https://usedproduct-resel-server-side.vercel.app/mybookings/${id}`,{
+        fetch(`http://localhost:5000/mybookings/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-Type':'application/json'

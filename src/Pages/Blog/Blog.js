@@ -6,7 +6,7 @@ const Blog = () => {
             <h1 className='text-center text-3xl font-bold'> Blog</h1>
             <div className='text-center'>
             <h1 className='text-xl text-primary'>What are the different ways to manage a state in a React application?</h1>
-            <h1>When we have to pass data from one component to another then it can be done easily, but if we want to pass our data in nested states then it becomes complicated which is called prop drilling i.e
+            <h1>When we have to pass data from one  to another then it can be done easily, but if we want to pass our data in nested states then it becomes complicated which is called prop drilling i.e
                   passing the data as props from parent component to child component.To avoid propdrilling we 
                 have to manage our state in such a way that it can be used by every component without prop
                 drilling</h1>

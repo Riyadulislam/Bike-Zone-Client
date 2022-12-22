@@ -40,7 +40,7 @@ const Addproduct = () => {
           .then(res=>res.json())
           .then(imagedata=>{
             console.log(imagedata.data.url)
-            fetch('http://localhost:5000/product', {
+            fetch('https://usedproduct-resel-server-side.vercel.app/product', {
                 method: 'POST', // or 'PUT'
                 headers: {
                   'Content-Type': 'application/json',

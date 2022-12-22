@@ -41,7 +41,7 @@ const SellerSingup = () => {
         
      }
     // const handleadmin=(id)=>{
-    //     fetch(`http://localhost:5000/users/admin/${id}`,{
+    //     fetch(`https://usedproduct-resel-server-side.vercel.app/users/admin/${id}`,{
     //         method: 'PUT',
     //     })
     //     .then(res=>res.json())
@@ -54,7 +54,7 @@ const SellerSingup = () => {
     //  }
     
     const saveUser = (user) => {
-        fetch('http://localhost:5000/sellers', {
+        fetch('https://usedproduct-resel-server-side.vercel.app/sellers', {
             method: 'POST', 
             headers: {
                 'Content-Type': 'application/json',

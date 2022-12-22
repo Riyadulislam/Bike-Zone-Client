@@ -13,7 +13,7 @@ const Category = () => {
 
 
 useEffect(()=>{
-    axios.get('http://localhost:5000/category')
+    axios.get('https://usedproduct-resel-server-side.vercel.app/category')
     .then(data=>setCategorys(data.data))
 },[])
   console.log(' categorys', categorys.data)

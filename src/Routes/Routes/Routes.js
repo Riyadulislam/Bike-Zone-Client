@@ -50,7 +50,7 @@ const router=createBrowserRouter([
             {
                 path:'/category/:id',
                 element:<Privateroute><Singleproduct></Singleproduct></Privateroute>,
-                loader:({params})=>fetch(`http://localhost:5000/category/${params.id}`)
+                loader:({params})=>fetch(`https://usedproduct-resel-server-side.vercel.app/category/${params.id}`)
             }
           
         ]
@@ -93,7 +93,7 @@ const router=createBrowserRouter([
             {
                 path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
-                loader:({params})=>fetch(`http://localhost:5000/myBookingProduct/${params.id}`)
+                loader:({params})=>fetch(`https://usedproduct-resel-server-side.vercel.app/myBookingProduct/${params.id}`)
                
             }
             

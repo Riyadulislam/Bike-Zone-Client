@@ -10,7 +10,7 @@ const Advertise = () => {
     const { data: advertizement = [], isLoading,} = useQuery({
         queryKey: ['advertizement'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/advertize`)
+            const res = await fetch(`https://usedproduct-resel-server-side.vercel.app/advertize`)
             const data = await res.json()
             return data
         }
@@ -18,7 +18,7 @@ const Advertise = () => {
    
     console.log('user',user?.email)
     useEffect(() => {
-            fetch(`http://localhost:5000/verify/${user?.email}`)
+            fetch(`https://usedproduct-resel-server-side.vercel.app/verify/${user?.email}`)
                 .then(res => res.json())
                 .then(data => {
                     console.log('data',data);

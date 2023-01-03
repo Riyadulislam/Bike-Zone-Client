@@ -11,7 +11,7 @@ const Individualproduct = ({p,setBookingproduct}) => {
         <div>
             <div className="card  bg-base-100 shadow-xl ">
                     <figure className="px-10 pt-10">
-                        <img src={image} alt="Shoes" className="rounded-xl" />
+                        <img src={image} alt="Shoes" className="  rounded-xl" />
                     </figure>
                     <div className="card-body items-center text-center">
                         <h2 className="card-title">{name}</h2>
@@ -25,7 +25,7 @@ const Individualproduct = ({p,setBookingproduct}) => {
                          
                             <label onClick={()=>setBookingproduct(p)}
                              htmlFor="my-modal-3"
-                              className="btn btn-primary">Sold</label>
+                              className="btn btn-info btn-disabled cursor-not-allowed">Sold</label>
                         </div>
                         
                      }
@@ -34,7 +34,7 @@ const Individualproduct = ({p,setBookingproduct}) => {
                          
                             <label onClick={()=>setBookingproduct(p)}
                              htmlFor="my-modal-3"
-                              className="btn btn-primary">Book Now</label>
+                              className="btn btn-info">Book Now</label>
                         </div>
                         
                      }

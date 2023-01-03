@@ -12,7 +12,7 @@ const Singleproduct = () => {
     return (
         <div>
           
-            <div className='grid grid-cols-2 gap-6'>
+            <div className='grid p-10 mb-10 grid-cols-2 gap-6'>
             
             {
                 product.map((p,i) =><Individualproduct

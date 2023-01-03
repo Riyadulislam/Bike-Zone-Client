@@ -49,7 +49,7 @@ const router=createBrowserRouter([
             },
             {
                 path:'/category/:id',
-                element:<Privateroute><Singleproduct></Singleproduct></Privateroute>,
+                element:<Singleproduct></Singleproduct>,
                 loader:({params})=>fetch(`https://usedproduct-resel-server-side.vercel.app/category/${params.id}`)
             }
           

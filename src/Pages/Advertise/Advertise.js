@@ -34,13 +34,14 @@ const Advertise = () => {
    
     return (
         <div >
-            {  advertizement.length &&
+            {  advertizement.length==0 ? <></>
+            :
      <h1 className='text-center font-bold text-4xl text-primary mt-10'>ADVERTIZE</h1>}
      <div className='grid grid-cols-1  md:grid-cols-3'>
         {
             advertizement.map(add=> <div className=" card w-96 bg-base-100 shadow-xl ">
             <figure className="px-10 pt-10">
-                <img src={add.image} alt="Shoes" className="rounded-xl" />
+                <img src={add.image} alt="Shoes" className=" h-48 w-48 rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
             <h2 className="card-title">Seller Status{add.sellername}</h2>
@@ -52,13 +53,13 @@ const Advertise = () => {
                 <div className="card-actions">
                     <label
                      htmlFor="my-modal-3"
-                      className="btn btn-primary">Book Now</label>
+                      className="btn btn-info">Book Now</label>
                 </div>
             </div>
         </div>)
         }
        </div>
-       
+
        </div>
        
     );

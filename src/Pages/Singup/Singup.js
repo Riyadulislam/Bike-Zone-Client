@@ -61,7 +61,7 @@ const Singup = () => {
     return (
         <div>
 
-<div className="dropdown h-[5px] flex justify-center items-center">
+<div className="dropdown mt-20 h-[5px] flex justify-center items-center">
   <label tabIndex={0} className="btn btn-accent">Choice Account</label>
   <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40">
     <li><Link to='/singup'>Buyer Account</Link></li>

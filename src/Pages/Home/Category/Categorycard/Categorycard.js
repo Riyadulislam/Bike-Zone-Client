@@ -14,19 +14,17 @@ const Categorycard = ({category,isLoading}) => {
     return (
         <div>
         
-            <div className="card bg-base-100 shadow-xl">
+            <div className=" p-15 card bg-base-100 shadow-xl">
   <figure className="px-10 pt-10">
-    <img src={image} alt="Shoes" className="rounded-xl" />
+    <img src={image} alt="Shoes" className=" h-60 w-60 rounded-xl file:rounded-xl" />
   </figure>
   <div className="card-body items-center text-center">
     <h2 className="card-title">{title}</h2>
    
     <div className="card-actions">
-      <button className="btn btn-primary">
-        <Link to={`/category/${service_id}`}>Category</Link>
-   
+      
+        <Link className='btn btn-info text-white'  to={`/category/${service_id}`}>See more</Link>
        
-        </button>
     </div>
   </div>
 </div>

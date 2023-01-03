@@ -20,7 +20,7 @@ useEffect(()=>{
     return (
         <div>
             <h1 className='text-center font-bold text-3xl mt-4'>CATEGORIES</h1>
-            <div className='grid gap-4 grid-cols-1 md:grid-cols-3'>
+            <div className='grid p-10 gap-4 grid-cols-1 md:grid-cols-3'>
             {
                 categorys.map(category=><Categorycard
                 key={category._id}

@@ -15,7 +15,6 @@ const handleLogout=()=>{
 
     const menuItems = <React.Fragment>
     <li><Link to='/'>Home</Link></li>
-    <li><Link to='/blog'>Blog</Link></li>
     <li><Link to='/dashboard'>Dashboard</Link></li>
     {
         user?.uid ?<li> <button onClick={handleLogout}><Link to='/login'>Logout</Link></button></li>
